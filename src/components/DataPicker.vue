@@ -1,14 +1,13 @@
 <template>
   <v-layout row wrap>
-    <v-flex sm12>
+    <v-flex sm6>
       <v-date-picker
+        v-on:input="choose"
         v-model="picker"
         year-icon="mdi-calendar-blank"
         prev-icon="mdi-skip-previous"
         next-icon="mdi-skip-next"
       ></v-date-picker>
-<!--     <v-btn slot="activator" ml0 color="info">Next</v-btn>-->
-      <TestForm/>
     </v-flex>
   </v-layout>
 </template>
@@ -24,17 +23,35 @@
 </style>
 
 <script>
-  import TestForm from './TestForm';
-	
   export default {
-	components: {
-		TestForm	  
-	},
 	props: ['dialog'],
     data () {
       return {
         picker: new Date().toISOString().substr(0, 10)
       }
+    },
+    methods: {
+      choose: function (event) {
+        let today = new Date();
+        let dd = today.getDate();
+        let mm = today.getMonth()+1;
+        let yyyy = today.getFullYear();
+        if(dd<10) {
+          dd = '0'+dd
+        } 
+
+        if(mm<10) {
+          mm = '0'+mm
+        }
+        today = yyyy + '-' + mm + '-' + dd;
+        if(event > today){
+          document.getElementsByClassName('next-btn')[0].removeAttribute('disabled');
+          document.getElementsByClassName('next-btn')[0].classList.remove('v-btn--disabled');
+        }else{
+          document.getElementsByClassName('next-btn')[0].setAttribute('disabled','disabled');
+          document.getElementsByClassName('next-btn')[0].classList.add('v-btn--disabled');
+        }
+      }
     }  
-  }
+  };
 </script>

@@ -1,7 +1,5 @@
 <template>
   <v-layout row justify-start>
-    <v-dialog v-model="dialog" persistent max-width="600px">
-      <v-btn ref="btns" slot="activator" color="primary" dark disabled :click="chekDisabled">Next</v-btn>
       <v-card>
         <v-card-title>
           <span class="headline">User Profile</span>
@@ -47,13 +45,7 @@
           </v-container>
           <small>*indicates required field</small>
         </v-card-text>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" flat @click="dialog = false">Close</v-btn>
-          <v-btn color="blue darken-1" flat @click="dialog = false">Save</v-btn>
-        </v-card-actions>
       </v-card>
-    </v-dialog>
   </v-layout>
 </template>
 

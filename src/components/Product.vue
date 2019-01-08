@@ -28,13 +28,13 @@
 			</v-card>
 		</v-flex>
 		
-		<!-- Data picker -->
+		<!-- Start stepper -->
 		
-		<v-flex lg8 ml-5 v-if="isVisible">
-			<DataPicker/>
+		<v-flex lg4 ml-5 v-if="isVisible">
+			<Stepper/>
 		</v-flex>
 		
-		<!-- End data picker -->
+		<!-- End stepper -->
 		
 	</v-layout>
 </template>
@@ -51,18 +51,16 @@
 	
 </style>
 <script>
-	import DataPicker from './DataPicker';
-	import TestForm from './TestForm';
+	import Stepper from './Stepper';
 	
 	export default {
 		components: {
-     		DataPicker,
+     		Stepper
     	},
-		props: ['productID', 'isExpanded', 'imageSrc', 'title', 'description', 'priceTxt', 'price', 'caption', 'dialog'],
+		props: ['productID', 'imageSrc', 'title', 'description', 'priceTxt', 'price', 'caption'],
 		data: () => ({
 			isExpanded: false,
 			isVisible: false,
-			dialog: false
 		}),
 		methods: {
 			resizePane(event) {
@@ -71,7 +69,12 @@
 				while(container.firstChild) {
 					container.removeChild(container.firstChild);
 				}
+				target.closest('button').remove();
 				container.appendChild(curr_el);
+				let img = container.getElementsByClassName('v-image__image');
+				img[0].style.backgroundSize = "100%";
+				img[0].style.backgroundPosition = "top";
+				container.getElementsByClassName('v-responsive__sizer')[0].style.paddingBottom="50%";
 				currentCard.classList.add('lg4');
 				currentCard.classList.remove('offset-sm3');
 				this.isVisible = true;
@@ -79,7 +82,6 @@
 					let picker = document.querySelectorAll('.v-date-picker-table .v-btn');
 					var counter = 0, btn = document.querySelector('.theme--dark.v-btn.v-btn--disabled[data-v-6ea021a6]:not(.v-btn--icon):not(.v-btn--flat):not(.v-btn--outline)');
 					var btnContent = btn.querySelector('.v-btn__content');
-					console.log(btnContent);
 					picker.forEach((item, i) => {
 						if(picker[i].classList.contains('v-btn--active')) {
 							counter++;
@@ -89,8 +91,6 @@
 							
 						} 
 					},1000);
-					console.log(picker);
-					console.log(counter);
 				})
 			}
 		}
