@@ -12,13 +12,12 @@
 							<v-card-title primary-title>
 								<div>
 									<h3 class="headline mb-0">{{ title }}</h3>
-									<div>{{ description }}</div>
+									<div class="desr">{{ description }}</div>
 								</div>
 							</v-card-title>
 
 							<v-card-actions class="pl-3">
-								{{ priceTxt }} {{ price }} CHF<br>
-								<small>(~ 440 EUR)</small>
+								{{ price }} EUR
 								<v-spacer></v-spacer>
 								<v-btn round color="orange" right v-on:click="resizePane">{{ caption }}</v-btn>
 							</v-card-actions>
@@ -46,7 +45,12 @@
 	};
 	
 	.white-text {
-		color: #fff!important!important;
+		color: #fff!important;
+	}
+	
+	.desr {
+		height: 130px;
+		overflow: auto;
 	}
 	
 </style>
@@ -57,10 +61,10 @@
 		components: {
      		Stepper
     	},
-		props: ['productID', 'imageSrc', 'title', 'description', 'priceTxt', 'price', 'caption'],
+		props: ['productID', 'imageSrc', 'title', 'description', 'priceTxt', 'price', 'caption', 'info'],
 		data: () => ({
 			isExpanded: false,
-			isVisible: false,
+			isVisible: false
 		}),
 		methods: {
 			resizePane(event) {
@@ -81,7 +85,6 @@
 				setTimeout(() => {
 					let picker = document.querySelectorAll('.v-date-picker-table .v-btn');
 					var counter = 0, btn = document.querySelector('.theme--dark.v-btn.v-btn--disabled[data-v-6ea021a6]:not(.v-btn--icon):not(.v-btn--flat):not(.v-btn--outline)');
-					var btnContent = btn.querySelector('.v-btn__content');
 					picker.forEach((item, i) => {
 						if(picker[i].classList.contains('v-btn--active')) {
 							counter++;

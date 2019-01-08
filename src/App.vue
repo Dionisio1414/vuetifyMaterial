@@ -6,6 +6,7 @@
         <span class="font-weight-light">MATERIAL DESIGN</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
+      <Dropdown/>
       <v-btn
         flat
         href="https://github.com/vuetifyjs/vuetify/releases/latest"
@@ -27,11 +28,13 @@
 
 <script>
 import Products from './components/Products';
+import Dropdown from './components/Dropdown';
 
 export default {
   name: 'App',
   components: {
-    Products
+    Products,
+	Dropdown  
   },
   data () {
     return {

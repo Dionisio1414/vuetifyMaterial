@@ -48,7 +48,7 @@
 	import Stepper from './Stepper';
 	export default {
 		components: {
-     		Stepper
+			Stepper
     	},
 		data: () => ({
 			valid: true,
@@ -74,8 +74,6 @@
 
 		methods: {
 			submit(event) {				
-			    console.log(Stepper);
-			    Stepper.components.VStepperStep.methods.toggle(3);
 				if (this.$refs.form.validate()) {
 					
 				}

@@ -24,7 +24,6 @@
 
 <script>
   export default {
-	props: ['dialog'],
     data () {
       return {
         picker: new Date().toISOString().substr(0, 10)

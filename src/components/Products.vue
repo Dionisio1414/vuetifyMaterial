@@ -1,14 +1,19 @@
 <template>
   <v-layout row>
-    <Product :productID=1 :imageSrc='products[0].imageSrc' :title='products[0].title' :description='products[0].description' :priceTxt='products[0].priceTxt' :price='products[0].price' :caption='products[0].caption' v-if='$store.state.cruiseSelected==0||$store.state.cruiseSelected==1'/>
-    <Product :productID=2 :imageSrc='products[0].imageSrc' :title='products[0].title' :description='products[0].description' :priceTxt='products[0].priceTxt' :price='products[0].price' :caption='products[0].caption' v-if='$store.state.cruiseSelected==0||$store.state.cruiseSelected==2'/>
-    <Product :productID=3 :imageSrc='products[0].imageSrc' :title='products[0].title' :description='products[0].description' :priceTxt='products[0].priceTxt' :price='products[0].price' :caption='products[0].caption' v-if='$store.state.cruiseSelected==0||$store.state.cruiseSelected==3'/>
+<!--
+    <Product :productID='info[0].id' :imageSrc='info[0].img' :title='info[0].title' :description='info[0].description' :priceTxt='products[0].priceTxt' :price='info[0].price' :caption='products[0].caption' v-if='$store.state.cruiseSelected==0||$store.state.cruiseSelected==1'/>
+    <Product :productID='info[1].id' :imageSrc='info[1].img' :title='info[1].title' :description='info[0].description' :priceTxt='products[0].priceTxt' :price='info[1].price' :caption='products[0].caption' v-if='$store.state.cruiseSelected==0||$store.state.cruiseSelected==2'/>
+    <Product :productID='info[2].id' :imageSrc='info[2].img' :title='info[2].title' :description='info[0].description' :priceTxt='products[0].priceTxt' :price='info[2].price' :caption='products[0].caption' v-if='$store.state.cruiseSelected==0||$store.state.cruiseSelected==3'/>    
+-->
+    
+    <Product v-for='(value, key) in info' :productID='info[key].id' :imageSrc="'http://5dg.utest.space/storage/app/public/'+info[key].img" :title='info[key].title' :description='info[key].desc' :priceTxt='products[0].priceTxt' :price='info[key].price' :caption='products[0].caption' v-if='$store.state.cruiseSelected==0||$store.state.cruiseSelected==key'/>
   </v-layout>
 </template>
 
 
 <script>
   import Product from './Product';
+  import axios from 'axios';
 
   export default {
     components: {
@@ -27,7 +32,8 @@
             caption: 'Learn more'
           }
         ],
-		isVisible: false  
+		isVisible: false,
+		info: null
       };
     },
 
@@ -36,5 +42,11 @@
             return this.$store.state.cruiseSelected;
         }
     },
+	  
+	created() {
+		axios.get('http://5dg.utest.space/api/cruises')
+			.then(response => (this.info = response.data))
+			.catch(error => console.log(error));
+	}  
   }
 </script>
