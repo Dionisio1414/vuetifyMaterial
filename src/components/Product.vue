@@ -1,7 +1,7 @@
 <template>
-	<v-layout card sm12 md4 lg4 style="padding: 10px;">
+	<v-layout card sm6 style="padding: 10px;">
 	
-		<v-flex sm12 md4 lg4 offset-sm3>
+		<v-flex sm6 offset-sm3>
 			<v-card elevation-15 hover>
 				<v-layout column>
 					<v-flex col-xs-4>
@@ -81,6 +81,7 @@
 				container.getElementsByClassName('v-responsive__sizer')[0].style.paddingBottom="50%";
 				currentCard.classList.add('lg4');
 				currentCard.classList.remove('offset-sm3');
+				container.getElementsByClassName('desr')[0].style.width="unset";
 				this.isVisible = true;
 				setTimeout(() => {
 					let picker = document.querySelectorAll('.v-date-picker-table .v-btn');

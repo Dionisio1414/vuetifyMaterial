@@ -3,7 +3,7 @@
 			<v-layout justify-space-between column>
 				<v-layout justify-space-between column>
 					<v-layout row wrap>
-						<v-select		v-model="gender" 		:rules="genderRule"	:items="genderItems" label="Title" style="width:20%"></v-select>
+						<v-select	v-model="gender" 		:rules="genderRule"	:items="genderItems" label="Title" style="width:20%"></v-select>
 						<v-text-field	v-model="firstName"		:rules="nameRules"	:counter="25"		label="First Name" required style="width:40%; padding-left:10px"></v-text-field>
 						<v-text-field	v-model="laststName"	:rules="nameRules"	:counter="25"		label="Last Name" required style="width:40%; padding-left:10px"></v-text-field>
 					</v-layout>
@@ -75,10 +75,21 @@
 		}),
 
 		methods: {
-			submit(event) {				
+			submit(event) {			
 				if (this.$refs.form.validate()) {
-					axios.post('http://5dg.utest.space/api/orders')
-						.then(response => (this.info = response.data))
+					let data = {
+						firstName: this.firstName,
+						email: this.email,
+						gender: this.gender,
+						laststName: this.laststName,
+						street: this.street,
+						country: this.country,
+						city: this.city,
+						phone: this.cell
+					}
+					console.log(data);
+					axios.post('http://5dg.utest.space/api/orders',{data})
+						.then(function(response){console.log(response);})
 						.catch(error => console.log(error));
 				}
 			},

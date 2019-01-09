@@ -50,3 +50,12 @@
 	}  
   }
 </script>
+<style>
+  .desr {
+    width: 14vw;
+    word-break: break-all;
+  }
+  .v-card{
+    height: 100%;
+  }
+</style>
