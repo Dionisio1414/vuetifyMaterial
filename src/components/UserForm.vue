@@ -96,10 +96,13 @@
 						date: this.$root.date,
 						time: this.test,
 						n_persons: this.attendees,
-						ages: ages
-					}
+						ages: ages,
+						stop: this.checkbox
+					}										
 					axios.post('http://5dg.utest.space/api/orders',{data})
-						.then(function(response){console.log(response);})
+						.then(function(){
+							location.reload();
+						})
 						.catch(error => console.log(error));
 				}
 			},

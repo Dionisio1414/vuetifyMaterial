@@ -36,13 +36,13 @@
 
   	export default {
   		components: {
-			DataPicker,
-			UserForm
-		},
+			 DataPicker,
+			 UserForm
+		  },
     	data () {
-			return {
-        		e1: 0
-			}
+  			return {
+          		e1: 0
+  			}
     	}
   	}
 </script>

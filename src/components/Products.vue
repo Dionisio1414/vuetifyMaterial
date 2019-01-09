@@ -6,7 +6,7 @@
     <Product :productID='info[2].id' :imageSrc='info[2].img' :title='info[2].title' :description='info[0].description' :priceTxt='products[0].priceTxt' :price='info[2].price' :caption='products[0].caption' v-if='$store.state.cruiseSelected==0||$store.state.cruiseSelected==3'/>    
 -->
     
-    <Product v-for='(value, key) in info' :productID='info[key].id' :imageSrc="'http://5dg.utest.space/storage/app/public/'+info[key].img" :title='info[key].title' :description='info[key].desc' :priceTxt='products[0].priceTxt' :price='info[key].price' :caption='products[0].caption' v-if='$store.state.cruiseSelected==0||$store.state.cruiseSelected==key'/>
+    <Product v-for='(value, key) in info' :productID='info[key].id' :imageSrc="'http://5dg.utest.space/storage/app/public/'+info[key].img" :title='info[key].title' :description='info[key].desc' :priceTxt='products[0].priceTxt' :price='info[key].price' :type='info[key].type' :caption='products[0].caption' v-if='$store.state.cruiseSelected==0||$store.state.cruiseSelected==key'/>
   </v-layout>
 </template>
 
