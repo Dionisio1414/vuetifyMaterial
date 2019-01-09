@@ -1,10 +1,10 @@
 <template>
-	<v-layout card style="padding: 10px;">
+	<v-layout card sm12 md4 lg4 style="padding: 10px;">
 	
-		<v-flex xs12 sm6 offset-sm3 elevation-15 main-card>
+		<v-flex sm12 md4 lg4 offset-sm3>
 			<v-card elevation-15 hover>
 				<v-layout column>
-					<v-flex xs4>
+					<v-flex col-xs-4>
 						<v-img :src="imageSrc" aspect-ratio="1"></v-img>
 					</v-flex>
 					<v-flex xs8>

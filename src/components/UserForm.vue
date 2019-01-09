@@ -46,6 +46,8 @@
 
 <script>
 	import Stepper from './Stepper';
+	import axios from 'axios';
+
 	export default {
 		components: {
 			Stepper
@@ -75,7 +77,9 @@
 		methods: {
 			submit(event) {				
 				if (this.$refs.form.validate()) {
-					
+					axios.post('http://5dg.utest.space/api/orders')
+						.then(response => (this.info = response.data))
+						.catch(error => console.log(error));
 				}
 			},
 			clear() {
