@@ -46,6 +46,7 @@
         if(event > today){
           document.getElementsByClassName('next-btn')[0].removeAttribute('disabled');
           document.getElementsByClassName('next-btn')[0].classList.remove('v-btn--disabled');
+          this.$root.date = event;
         }else{
           document.getElementsByClassName('next-btn')[0].setAttribute('disabled','disabled');
           document.getElementsByClassName('next-btn')[0].classList.add('v-btn--disabled');

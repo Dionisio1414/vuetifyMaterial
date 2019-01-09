@@ -2,7 +2,7 @@
 	<v-layout card sm6 style="padding: 10px;">
 	
 		<v-flex sm6 offset-sm3>
-			<v-card elevation-15 hover>
+			<v-card :data-id="productID" elevation-15 hover>
 				<v-layout column>
 					<v-flex col-xs-4>
 						<v-img :src="imageSrc" aspect-ratio="1"></v-img>

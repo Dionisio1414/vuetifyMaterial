@@ -47,10 +47,12 @@
 <script>
 	import Stepper from './Stepper';
 	import axios from 'axios';
+	import DataPicker from './DataPicker';
 
 	export default {
 		components: {
-			Stepper
+			Stepper,
+			DataPicker
     	},
 		data: () => ({
 			valid: true,
@@ -75,8 +77,12 @@
 		}),
 
 		methods: {
-			submit(event) {			
+			submit(event) {	
 				if (this.$refs.form.validate()) {
+					let ages = {age1: this.agePerson1,age2: this.agePerson2,age3: this.agePerson3,age4: this.agePerson4,age5: this.agePerson5};
+					let target = event.target;
+					let card = target.closest('.layout.card');
+					let cruise_id = card.getElementsByClassName('v-card')[0].dataset.id;
 					let data = {
 						firstName: this.firstName,
 						email: this.email,
@@ -85,9 +91,13 @@
 						street: this.street,
 						country: this.country,
 						city: this.city,
-						phone: this.cell
+						phone: this.cell,
+						cruise_id: cruise_id,
+						date: this.$root.date,
+						time: this.test,
+						n_persons: this.attendees,
+						ages: ages
 					}
-					console.log(data);
 					axios.post('http://5dg.utest.space/api/orders',{data})
 						.then(function(response){console.log(response);})
 						.catch(error => console.log(error));
