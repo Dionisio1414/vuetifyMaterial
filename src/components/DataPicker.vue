@@ -43,7 +43,7 @@
           mm = '0'+mm
         }
         today = yyyy + '-' + mm + '-' + dd;
-        if(event > today){
+        if(event > today && this.$root.date){
           document.getElementsByClassName('next-btn')[0].removeAttribute('disabled');
           document.getElementsByClassName('next-btn')[0].classList.remove('v-btn--disabled');
           this.$root.date = event;

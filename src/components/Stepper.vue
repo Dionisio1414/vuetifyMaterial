@@ -10,8 +10,7 @@
 
     <v-stepper-items>
       <v-stepper-content step="1">
-        <v-card><DataPicker/></v-card>
-
+        <v-card><v-flex><DataPicker/><TimePicker mt-5 v-if="type == 'custom'"/></v-flex></v-card>
         <v-btn
           class="next-btn"
           disabled="disabled"
@@ -32,16 +31,19 @@
 
 <script>
 	import DataPicker from './DataPicker';
-	import UserForm from './UserForm';
+	import TimePicker from './TimePicker';
+  import UserForm from './UserForm';
 
   	export default {
   		components: {
 			 DataPicker,
+       TimePicker,
 			 UserForm
 		  },
+      props: ['type'],
     	data () {
   			return {
-          		e1: 0
+          e1: 0
   			}
     	}
   	}

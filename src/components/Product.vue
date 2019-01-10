@@ -2,7 +2,7 @@
 	<v-layout card sm6 style="padding: 10px;">
 	
 		<v-flex sm6 offset-sm3>
-			<v-card :data-id="productID" elevation-15 hover>
+			<v-card elevation-15 hover>
 				<v-layout column>
 					<v-flex col-xs-4>
 						<v-img :src="imageSrc" aspect-ratio="1"></v-img>
@@ -30,7 +30,7 @@
 		<!-- Start stepper -->
 		
 		<v-flex lg4 ml-5 v-if="isVisible">
-			<Stepper/>
+			<Stepper :type='type'/>
 		</v-flex>
 		
 		<!-- End stepper -->
@@ -61,7 +61,7 @@
 		components: {
      		Stepper
     	},
-		props: ['productID', 'imageSrc', 'title', 'description', 'priceTxt', 'price', 'caption', 'info'],
+		props: ['productID', 'imageSrc', 'title', 'description', 'priceTxt', 'price', 'caption', 'type'],
 		data: () => ({
 			isExpanded: false,
 			isVisible: false

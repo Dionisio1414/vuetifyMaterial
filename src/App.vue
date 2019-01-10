@@ -7,14 +7,7 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <Dropdown/>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>open_in_new</v-icon>
-      </v-btn>
+      <RegisterAgency/>      
     </v-toolbar>
 
     <v-content>
@@ -29,12 +22,13 @@
 <script>
 import Products from './components/Products';
 import Dropdown from './components/Dropdown';
-
+import RegisterAgency from './components/RegisterAgency'
 export default {
   name: 'App',
   components: {
     Products,
-	Dropdown  
+	  Dropdown,
+    RegisterAgency
   },
   data () {
     return {
