@@ -5,7 +5,7 @@
 			<v-card elevation-15 hover>
 				<v-layout column>
 					<v-flex col-xs-4>
-						<v-img :src="imageSrc" aspect-ratio="1"></v-img>
+						<v-img :src="imageSrc" position="center center" aspect-ratio="1"></v-img>
 					</v-flex>
 					<v-flex xs8>
 						<v-layout column>
@@ -43,7 +43,7 @@
 	.layout.column > .flex.active {
 		max-width: 50%;
 	};
-	
+
 	.white-text {
 		color: #fff!important;
 	}
@@ -68,7 +68,7 @@
 		}),
 		methods: {
 			resizePane(event) {
-				let target = event.target, container = document.querySelector('.layout.row'), cards = document.body.querySelectorAll('.layout.row > .layout'), curr_el = target.closest('.layout.card');
+				let target = event.target, container = document.querySelector('.layout.row.cards'), cards = document.body.querySelectorAll('.layout.row > .layout'), curr_el = target.closest('.layout.card');
 				let currentCard = curr_el.firstChild;
 				while(container.firstChild) {
 					container.removeChild(container.firstChild);
@@ -77,7 +77,6 @@
 				container.appendChild(curr_el);
 				let img = container.getElementsByClassName('v-image__image');
 				img[0].style.backgroundSize = "100%";
-				img[0].style.backgroundPosition = "top";
 				container.getElementsByClassName('v-responsive__sizer')[0].style.paddingBottom="50%";
 				currentCard.classList.add('lg4');
 				currentCard.classList.remove('offset-sm3');

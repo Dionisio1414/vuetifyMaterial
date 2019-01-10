@@ -31,6 +31,7 @@
     },
     methods: {
       choose: function (event) {
+        console.log();
         let today = new Date();
         let dd = today.getDate();
         let mm = today.getMonth()+1;
@@ -43,7 +44,7 @@
           mm = '0'+mm
         }
         today = yyyy + '-' + mm + '-' + dd;
-        if(event > today && this.$root.date){
+        if(event > today){
           document.getElementsByClassName('next-btn')[0].removeAttribute('disabled');
           document.getElementsByClassName('next-btn')[0].classList.remove('v-btn--disabled');
           this.$root.date = event;

@@ -1,5 +1,5 @@
 <template>
-  <v-layout row>
+  <v-layout row cards>
 <!--
     <Product :productID='info[0].id' :imageSrc='info[0].img' :title='info[0].title' :description='info[0].description' :priceTxt='products[0].priceTxt' :price='info[0].price' :caption='products[0].caption' v-if='$store.state.cruiseSelected==0||$store.state.cruiseSelected==1'/>
     <Product :productID='info[1].id' :imageSrc='info[1].img' :title='info[1].title' :description='info[0].description' :priceTxt='products[0].priceTxt' :price='info[1].price' :caption='products[0].caption' v-if='$store.state.cruiseSelected==0||$store.state.cruiseSelected==2'/>
