@@ -68,33 +68,43 @@
 		}),
 		methods: {
 			resizePane(event) {
-				let target = event.target, container = document.querySelector('.layout.row.cards'), cards = document.body.querySelectorAll('.layout.row > .layout'), curr_el = target.closest('.layout.card');
+				let target = event.target;
+				let container = document.querySelector('.layout.row.cards')
+				let cards = document.body.querySelectorAll('.layout.row > .layout');
+				let curr_el = target.closest('.layout.card');
 				let currentCard = curr_el.firstChild;
-				while(container.firstChild) {
-					container.removeChild(container.firstChild);
-				}
-				target.closest('button').remove();
-				container.appendChild(curr_el);
-				let img = container.getElementsByClassName('v-image__image');
-				img[0].style.backgroundSize = "100%";
-				container.getElementsByClassName('v-responsive__sizer')[0].style.paddingBottom="50%";
+
+				let card = container.getElementsByClassName('card');
+				[].forEach.call(card, function(el) {
+			        el.style.display = 'none';
+			    });
+
+				curr_el.style.display = 'flex';
+				curr_el.style.justifyContent = 'center';
+
+				let btn_act = currentCard.querySelector('.v-card__actions > button').style.display = 'none';
+
+				document.getElementsByClassName('close_card')[0].style.display = 'block';
+
+				let imgs = container.getElementsByClassName('v-image__image');
+				
+				[].forEach.call(imgs, function(el) {
+			        el.style.backgroundSize = '100%';
+			    });
+
+				let sizers = container.getElementsByClassName('v-responsive__sizer');
+				[].forEach.call(sizers, function(el){
+					el.style.paddingBottom = '50%';
+				});
+
 				currentCard.classList.add('lg4');
 				currentCard.classList.remove('offset-sm3');
-				container.getElementsByClassName('desr')[0].style.width="unset";
+
+				container.getElementsByClassName('desr')[0].style.width = 'unset';
+
 				this.isVisible = true;
-				setTimeout(() => {
-					let picker = document.querySelectorAll('.v-date-picker-table .v-btn');
-					var counter = 0, btn = document.querySelector('.theme--dark.v-btn.v-btn--disabled[data-v-6ea021a6]:not(.v-btn--icon):not(.v-btn--flat):not(.v-btn--outline)');
-					picker.forEach((item, i) => {
-						if(picker[i].classList.contains('v-btn--active')) {
-							counter++;
-							btn.classList.remove('v-btn--disabled');
-							btn.classList.add('primary');
-							btnContent.style.color = "white";
-							
-						} 
-					},1000);
-				})
+
+				curr_el.querySelector('.v-stepper').parentNode.style.display = 'contents';
 			}
 		}
 	}

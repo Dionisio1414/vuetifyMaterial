@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-time-picker v-on:input="choose" format="24hr" v-model="picker" landscape='true'></v-time-picker>
+    <v-time-picker v-on:input="choose" format="24hr" v-model="picker" landscape=true></v-time-picker>
   </div>
 </template>
 <script>
