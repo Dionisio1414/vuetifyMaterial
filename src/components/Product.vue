@@ -1,8 +1,8 @@
 <template>
-	<v-layout card sm6 style="padding: 10px;">
+	<v-layout card>
 	
-		<v-flex sm6 offset-sm3>
-			<v-card elevation-15 hover>
+		<v-flex xs12 sm6 offset-sm3>
+			<v-card class="rounded-card" elevation-15 hover>
 				<v-layout column>
 					<v-flex col-xs-4>
 						<v-img :src="imageSrc" position="center center" aspect-ratio="1"></v-img>
@@ -52,7 +52,9 @@
 		height: 130px;
 		overflow: auto;
 	}
-	
+	.rounded-card{
+		border-radius:50px;
+	}
 </style>
 <script>
 	import Stepper from './Stepper';
