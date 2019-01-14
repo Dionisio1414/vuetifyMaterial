@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <v-app>
         <v-toolbar app>
             <v-toolbar-title class="headline text-uppercase">
@@ -36,4 +37,42 @@
             }
         }
     }
+=======
+  <v-app>
+    <v-toolbar app>
+      <v-toolbar-title class="headline text-uppercase">
+        <span class="font-weight-light">5 de Genève - PRIVATE CRUISE GENEVA LAKE</span>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <Dropdown/>
+      <RegisterAgency/>      
+    </v-toolbar>
+
+    <v-content>
+      <v-parallax src="http://www.5degeneve.ch/images/5degeneve-1.jpg" height="500">
+        <v-layout column align-center justify-center class="white--text"></v-layout>
+      </v-parallax>
+      <Products/>
+    </v-content>
+  </v-app>
+</template>
+
+<script>
+import Products from './components/Products';
+import Dropdown from './components/Dropdown';
+import RegisterAgency from './components/RegisterAgency'
+export default {
+  name: 'App',
+  components: {
+    Products,
+	  Dropdown,
+    RegisterAgency
+  },
+  data () {
+    return {
+      //
+    }
+  }
+}
+>>>>>>> 3d418027217701907117a6841624c5cc98623c58
 </script>

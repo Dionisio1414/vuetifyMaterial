@@ -1,10 +1,16 @@
 import Vue from 'vue'
+<<<<<<< HEAD
 import { MLInstaller, MLCreate, MLanguage } from 'vue-multilanguage';
 import Datetime from 'vue-datetime';
 import 'vue-datetime/dist/vue-datetime.css'
 
 Vue.use(Datetime);
 Vue.use(MLInstaller);
+=======
+import { MLInstaller, MLCreate, MLanguage } from 'vue-multilanguage'
+ 
+Vue.use(MLInstaller)
+>>>>>>> 3d418027217701907117a6841624c5cc98623c58
  
 export default new MLCreate({
   initial: 'russian',

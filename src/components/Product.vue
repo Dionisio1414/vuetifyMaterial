@@ -2,7 +2,11 @@
 	<v-layout card>
 	
 		<v-flex xs12 sm6 offset-sm3>
+<<<<<<< HEAD
 			<v-card elevation-15 hover>
+=======
+			<v-card class="rounded-card" elevation-15 hover>
+>>>>>>> 3d418027217701907117a6841624c5cc98623c58
 				<v-layout column>
 					<v-flex col-xs-4>
 						<v-img :src="imageSrc" position="center center" aspect-ratio="1"></v-img>
@@ -38,6 +42,10 @@
 	</v-layout>
 </template>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3d418027217701907117a6841624c5cc98623c58
 <style>
 	.layout.column > .flex.active {
 		max-width: 50%;
